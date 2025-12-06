@@ -1,12 +1,14 @@
-const tarif = 80;
-const hoursInDay = 5;
-const daysInWeek = 5;
+const projectName = 'Сайт магазина';
+const prise = 2000;
+const author = 'Вова Пупкин ';
 
-const timeWork = 40;
-let days = timeWork / hoursInDay + 2;
-let salary = tarif * timeWork;
-let b = (days <= 11);
+const template =  author + 'заказал ' + projectName + ' по цене ' + prise + ' рублей';
+console.log(template);
 
-console.log(b);
-console.log('Количество дней работы: ' + days);
-console.log('Зарплата за работу: ' + salary);
+const template2 = `${author}заказал ${projectName} по цене ${prise} рублей`;
+console.log(template2);
+
+const template3 = `${author} 
+заказал 
+    ${projectName}`;
+console.log(template3);
