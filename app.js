@@ -1,16 +1,17 @@
-const money = 10;
-const product = 'Iphone 14 Pro Max';
+const depozit = 12000;
+const procentInMonth = 7;
+const months = 10;
+const costHouse = 13500;
 
-const canBuy = money >= 100;
+const Amount = depozit * (1 + (procentInMonth / 100) / 12) ** months;  
+console.log(`Сумма на вашем счету через ${months} месяцев составит ${Amount} рублей.`);
+const profit = Amount - depozit; 
+console.log(`Ваш прибыль за ${months} месяцев составит ${profit} рублей.`);
 
-if (canBuy) {
-    console.log(`Поздравляю! Вы можете купить ${product} за ${money} долларов.`);
-} else if (money >= 5) {
-    console.log(`Вы можете купить б/у версию ${product}.`);
-} 
-else {
-    console.log(`К сожалению, у вас недостаточно средств для покупки ${product}. Вам нужно еще ${100 - money} долларов.`);
+if (Amount >= costHouse) {
+    console.log(`Поздравляем! Вы сможете купить дом стоимостью ${costHouse} рублей.
+и у вас останется ${Amount - costHouse} рублей.`);
+} else {
+    const difference = costHouse - Amount;
+    console.log(`К сожалению, вам не хватает ${difference} рублей для покупки дома стоимостью ${costHouse} рублей.`);
 }
-
-console.log(`
-    Спасибо за использование нашего магазина!`);
