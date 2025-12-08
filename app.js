@@ -1,33 +1,18 @@
-const roles = ["admin", "user", "superuser", "guest", "editor"];
+// const userData = ["Владимир", 20, "Москва"];
+// console.log(userData);
 
-const tasks = ["Задача 1"];
+// const [name, _, city] = userData;
+// console.log(name, city);
 
-function AddTask(task) {
-  tasks.push(task);
+// const data = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+// const [first, second, ...rest] = data;
+// console.log(first, second, rest);
+
+const url = "https://example.com/api/users/12345/details";
+
+function parseUrl(url) {
+  const [protocol, _, domain, ...rest] = url.split("/");
+  return [protocol.replace(":", ""), domain, "/" + rest.join("/")];
 }
-
-function RemoveTaskByName(taskName) {
-  const index = tasks.indexOf(taskName);
-  if (index === -1) {
-    return;
-  }
-  return tasks.splice(index, 1);
-}
-
-function Prioritase(tasckName) {
-  const result = RemoveTaskByName(tasckName);
-  if (result) {
-    tasks.unshift(result[0]);
-  }
-}
-
-AddTask("Задача 2");
-AddTask("Задача 3");
-AddTask("Задача 4");
-console.log(tasks);
-
-console.log(RemoveTaskByName("Задача 2"));
-console.log(tasks);
-
-Prioritase("Задача 3");
-console.log(tasks);
+const parsedData = parseUrl(url);
+console.log(parsedData);
