@@ -45,4 +45,3 @@ console.log(roles.slice(-1));
 console.log(roles.slice(1, -1));
 console.log(" ==================");
 console.log(roles.splice(2, 2)); // возвращает удалённые элементы
-console.log(roles);
