@@ -1,37 +1,48 @@
-// const KG_IN_RUB = 7;
-// const KM_IN_RUB = 5;
+const roles = ["admin", "user", "superuser", "guest", "editor"];
 
-// function calculateWeightInRub(weightInKg) {
-//   return weightInKg * KG_IN_RUB;
+// console.log("Available roles:", roles);
+
+// console.log(roles[roles.length - 1]);
+// console.log(roles.length);
+
+// console.log(roles.at(4));
+
+// const users = ['Вася', 'Петя', 'Маша'];
+
+// function square(num) {
+//   return num + num;
 // }
 
-// function calculateDistanceInRub(distancetInKm) {
-//   return distancetInKm * KM_IN_RUB;
-// }
+const users = ["Вася", "Петя", "Маша"];
 
-// function getExchangePrice(present1, present2, distance) {
-//   const weightPrice = calculateWeightInRub(present1 + present2);
-//   const distancePrice = calculateDistanceInRub(distance);
-//   return weightPrice + distancePrice;
-// }
+// console.log(users);
+// users[1] = "Коля";
+// console.log(users);
+// users[3] = "Оля";
+// console.log(users);
+// users[users.length] = "Михаил";
+// console.log(users);
+// let arLenth = users.push("Саша");
+// console.log(users, arLenth);
 
-// console.log(getExchangePrice(1, 2, 10)); // Example usage
+// arLenth = users.unshift("Ваня");
+// console.log(users, arLenth);
 
-const userAge = 25;
-const userJob = false;
-const userMoney = 1500;
+// const retPop = users.pop();
+// console.log(users, retPop);
 
-function creditOffer(age, job) {
-  if (age >= 23 && job) {
-    return 500;
-  } else if (age >= 23 && !job) {
-    return 100;
-  } else {
-    return 0;
-  }
-}
+//------------------------------------------------------------------------
 
-const canBayMacbook = (money, price, age, job = false) =>
-  money + creditOffer(age, job) >= price;
+// console.log(roles.indexOf("user")); // 1
+// console.log(roles.includes("menager")); // false
 
-console.log(canBayMacbook(userMoney, 2000, userAge, userJob)); // Example usage
+//----Slice, splice, concat, reverse---------------------------------------------
+
+console.log(roles); // исходный массив не изменился
+console.log(roles.slice(2));
+console.log(roles.slice(2, 3));
+console.log(roles.slice(-1));
+console.log(roles.slice(1, -1));
+console.log(" ==================");
+console.log(roles.splice(2, 2)); // возвращает удалённые элементы
+console.log(roles);
