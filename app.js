@@ -1,47 +1,33 @@
 const roles = ["admin", "user", "superuser", "guest", "editor"];
 
-// console.log("Available roles:", roles);
+const tasks = ["Задача 1"];
 
-// console.log(roles[roles.length - 1]);
-// console.log(roles.length);
+function AddTask(task) {
+  tasks.push(task);
+}
 
-// console.log(roles.at(4));
+function RemoveTaskByName(taskName) {
+  const index = tasks.indexOf(taskName);
+  if (index === -1) {
+    return;
+  }
+  return tasks.splice(index, 1);
+}
 
-// const users = ['Вася', 'Петя', 'Маша'];
+function Prioritase(tasckName) {
+  const result = RemoveTaskByName(tasckName);
+  if (result) {
+    tasks.unshift(result[0]);
+  }
+}
 
-// function square(num) {
-//   return num + num;
-// }
+AddTask("Задача 2");
+AddTask("Задача 3");
+AddTask("Задача 4");
+console.log(tasks);
 
-const users = ["Вася", "Петя", "Маша"];
+console.log(RemoveTaskByName("Задача 2"));
+console.log(tasks);
 
-// console.log(users);
-// users[1] = "Коля";
-// console.log(users);
-// users[3] = "Оля";
-// console.log(users);
-// users[users.length] = "Михаил";
-// console.log(users);
-// let arLenth = users.push("Саша");
-// console.log(users, arLenth);
-
-// arLenth = users.unshift("Ваня");
-// console.log(users, arLenth);
-
-// const retPop = users.pop();
-// console.log(users, retPop);
-
-//------------------------------------------------------------------------
-
-// console.log(roles.indexOf("user")); // 1
-// console.log(roles.includes("menager")); // false
-
-//----Slice, splice, concat, reverse---------------------------------------------
-
-console.log(roles); // исходный массив не изменился
-console.log(roles.slice(2));
-console.log(roles.slice(2, 3));
-console.log(roles.slice(-1));
-console.log(roles.slice(1, -1));
-console.log(" ==================");
-console.log(roles.splice(2, 2)); // возвращает удалённые элементы
+Prioritase("Задача 3");
+console.log(tasks);
