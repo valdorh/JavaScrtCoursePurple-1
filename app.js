@@ -89,14 +89,16 @@ const courceRUB = 81.5;
 // const res = prices.flat(2);
 // console.log(res);
 
-const users = ["Вася", "Семен", "Маша", "Николай", "Alisa"];
-console.log(users);
-
-const res = users.sort();
-
-console.log(res);
+//const users = ["Вася", "Семен", "Маша", "Николай", "Alisa"];
+//console.log(users);
+//
+//const res = users.sort();
+//
+//console.log(res);
 
 const operations = [100, -300, -100, 50, 450];
 console.log(operations);
 operations.sort((a, b) => b - a);
 console.log(operations);
+
+console.log(new Array(5).fill(10).map((el) => Math.random() * 100));
