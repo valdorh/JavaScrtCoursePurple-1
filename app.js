@@ -1,56 +1,55 @@
-const warehouse = {
-  goods: [],
-  findGoodById(id) {
-    return this.goods.find((good) => good.id == id);
-  },
-  addGood(good) {
-    if (good.id && !this.findGoodById(good.id)) {
-      this.goods.push(good);
-    }
-  },
-  getWeight() {
-    return this.goods.reduce(
-      (acc, el) => (acc += el.weight?.kg ? el.weight.kg : 0),
-      0
-    );
-  },
-};
+"use strict";
 
-const car = {
+// console.log("Hello!");
+
+// const sum = 1;
+// console.log("start1");
+// console.log(sum);
+
+// function add5(n) {
+//   n = n + 5;
+//   if (n > 100) return n;
+//   console.log(n);
+//   return add5(n);
+// }
+
+// add5(sum);
+// console.log("ended");
+
+// let firstName = "Anton";
+// let firstName2 = firstName;
+// firstName = "New";
+
+// console.log(firstName);
+// console.log(firstName2);
+
+// const user1 = {
+//   firstName: "Anton",
+// };
+
+// const user2 = user1;
+// console.log(user1);
+// console.log(user2);
+
+// user2.firstName = "Katya";
+// console.log(user1);
+// console.log(user2);
+
+const user = {
+  name: "Anton",
   id: 1,
-  weight: {
-    kg: 1000,
-  },
-  brand: "Ford",
+  roles: ["Admin"],
 };
 
-const chair = {
-  id: 2,
-  weight: {
-    kg: 2,
-  },
+//user.name = "NewUser";
+console.log(user);
+
+const newuser = {
+  //  ...user,
 };
+Object.assign(newuser, user);
 
-const paper = {
-  id: 3,
-  color: "red",
-};
-
-const musik = {
-  id: 4,
-  weight: {
-    kg: 15,
-  },
-  brand: "Sony",
-};
-
-warehouse.addGood(car);
-warehouse.addGood(chair);
-warehouse.addGood(paper);
-warehouse.addGood(musik);
-console.log(warehouse.findGoodById(2));
-
-console.log(warehouse);
-console.log(warehouse.getWeight());
-
-gods = [1, 2, 3, 4, 5];
+newuser.name = "NewUser";
+newuser.roles.push("User");
+console.log(user);
+console.log(newuser);
