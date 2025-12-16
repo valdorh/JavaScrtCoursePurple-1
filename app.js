@@ -1,55 +1,62 @@
 "use strict";
 
-// console.log("Hello!");
-
-// const sum = 1;
-// console.log("start1");
-// console.log(sum);
-
-// function add5(n) {
-//   n = n + 5;
-//   if (n > 100) return n;
-//   console.log(n);
-//   return add5(n);
-// }
-
-// add5(sum);
-// console.log("ended");
-
-// let firstName = "Anton";
-// let firstName2 = firstName;
-// firstName = "New";
-
-// console.log(firstName);
-// console.log(firstName2);
-
-// const user1 = {
-//   firstName: "Anton",
+// const user = {
+//   name: "Vasya",
+//   roles: [],
 // };
 
-// const user2 = user1;
-// console.log(user1);
-// console.log(user2);
+// function addRole(user, role) {
+//   if (role.toLowerCase() === "admin") {
+//     const messsage = "Ошибка";
+//     console.log(messsage);
+//     return user;
+//   }
+//   user.roles.push(role);
+//   return user;
+// }
 
-// user2.firstName = "Katya";
-// console.log(user1);
-// console.log(user2);
+// const role = "ADMIN";
+// addRole(user, role);
+
+// console.log(user);
+//--------------------------------------------Пример поднятия----------
+
+// addUser();
+// console.log(b);
+// const a = 3;
+// var b = 4;
+
+// console.log(b);
+// function addUser() {
+//   console.log("Add User");
+// }
+
+// addUser();
+
+// function addNum(num, num1) {
+//   console.log(this);
+//   return num1 - num;
+// }
+
+// const addNumAr = (num1, num2) => {
+//   console.log(this);
+//   return num1 + num2;
+// };
+
+// //console.log(addNum(10, 15));
+// console.log(addNumAr(10, 15));
 
 const user = {
-  name: "Anton",
-  id: 1,
-  roles: ["Admin"],
+  name: "Vasya",
+  surname: "Pupkin",
+  getFullName: function () {
+    console.log(this);
+    return `${this.name} ${this.surname}`;
+  },
+  getName: () => {
+    console.log(this.surname);
+  },
 };
 
-//user.name = "NewUser";
-console.log(user);
-
-const newuser = {
-  //  ...user,
-};
-Object.assign(newuser, user);
-
-newuser.name = "NewUser";
-newuser.roles.push("User");
-console.log(user);
-console.log(newuser);
+console.log(user.getFullName());
+console.log(user.getName("yuuu"));
