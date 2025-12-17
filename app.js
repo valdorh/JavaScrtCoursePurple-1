@@ -1,62 +1,97 @@
 "use strict";
+// const weight = 3.2;
 
-// const user = {
-//   name: "Vasya",
-//   roles: [],
+// const rullon = {
+//   weight,
+//   getWeight() {
+//     return this.weight + " kg.";
+//   },
 // };
 
-// function addRole(user, role) {
-//   if (role.toLowerCase() === "admin") {
-//     const messsage = "Ошибка";
-//     console.log(messsage);
-//     return user;
-//   }
-//   user.roles.push(role);
-//   return user;
-// }
+// console.log(rullon.getWeight());
 
-// const role = "ADMIN";
-// addRole(user, role);
-
-// console.log(user);
-//--------------------------------------------Пример поднятия----------
-
-// addUser();
-// console.log(b);
-// const a = 3;
-// var b = 4;
-
-// console.log(b);
-// function addUser() {
-//   console.log("Add User");
-// }
-
-// addUser();
-
-// function addNum(num, num1) {
-//   console.log(this);
-//   return num1 - num;
-// }
-
-// const addNumAr = (num1, num2) => {
-//   console.log(this);
-//   return num1 + num2;
+// const car = {
+//   make: "Audi",
+//   model: "A3",
+//   year: 2021,
+//   damages: [],
+//   addDamage(part, rate) {
+//     this.damages.push({ part, rate });
+//     console.log(
+//       `У автомобиля ${this.make} ${this.model} добавленно повреждение: \n` +
+//         `${part}, степень ${rate}`
+//     );
+//   },
 // };
 
-// //console.log(addNum(10, 15));
-// console.log(addNumAr(10, 15));
+// const carB = {
+//   make: "BMW",
+//   model: "X5",
+//   year: 2019,
+//   damages: [],
+// };
 
-const user = {
-  name: "Vasya",
-  surname: "Pupkin",
-  getFullName: function () {
-    console.log(this);
-    return `${this.name} ${this.surname}`;
-  },
-  getName: () => {
-    console.log(this.surname);
-  },
+// car.addDamage("Капот", 2);
+// carB.addDamage = car.addDamage;
+// carB.addDamage("Водительская дверь", 3);
+
+// const addDamageFunc = car.addDamage;
+
+// //addDamageFunc("Bamper", 2);
+
+// addDamageFunc.call(car, "Kapot", 1);
+// addDamageFunc.call(carB, "Kapot", 9);
+
+// addDamageFunc.apply(carB, ["Стекло", 7]);
+
+//-------------------------Bind------------------
+
+// const car = {
+//   make: "Audi",
+//   model: "A3",
+//   year: 2021,
+//   damages: [],
+// };
+
+// const carManipulation = {
+//   addDamage(part, rate) {
+//     this.damages.push({ part, rate });
+//     console.log(
+//       `У автомобиля ${this.make} ${this.model} добавленно повреждение: \n` +
+//         `${part}, степень ${rate}`
+//     );
+//   },
+// };
+
+// const addDamageCar = carManipulation.addDamage.bind(car);
+
+// addDamageCar("Крыло", 5);
+// addDamageCar("Дверь", 15);
+// console.log(car);
+
+//-------------------Упражнение---------------
+
+const userVD = {
+  firstName: "Владиир",
+  lastName: "Доронин",
+  login: "doroninva@yandex.ru",
+  pass: "dgdgtr35de3xgg",
 };
 
-console.log(user.getFullName());
-console.log(user.getName("yuuu"));
+const userVP = {
+  firstName: "Василий",
+  lastName: "Семенов",
+  pass: "123456",
+};
+
+function removePass(reset) {
+  if (reset) {
+    this.pass = undefined;
+  } else {
+    this.pass = "1";
+  }
+}
+
+removePass.call(userVD, 0);
+
+console.log(userVD);
