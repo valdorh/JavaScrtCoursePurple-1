@@ -1,97 +1,67 @@
 "use strict";
-// const weight = 3.2;
 
-// const rullon = {
-//   weight,
-//   getWeight() {
-//     return this.weight + " kg.";
-//   },
-// };
+//IIFE
 
-// console.log(rullon.getWeight());
+// function init() {
+//   console.log("Start");
+// }
 
-// const car = {
-//   make: "Audi",
-//   model: "A3",
-//   year: 2021,
-//   damages: [],
-//   addDamage(part, rate) {
-//     this.damages.push({ part, rate });
-//     console.log(
-//       `У автомобиля ${this.make} ${this.model} добавленно повреждение: \n` +
-//         `${part}, степень ${rate}`
-//     );
-//   },
-// };
+// init();
 
-// const carB = {
-//   make: "BMW",
-//   model: "X5",
-//   year: 2019,
-//   damages: [],
-// };
+// (function () {
+//   console.log("Start IIFE");
+// })();
 
-// car.addDamage("Капот", 2);
-// carB.addDamage = car.addDamage;
-// carB.addDamage("Водительская дверь", 3);
+// //----------------------Замыкания-------------------
+// const balance = 300;
+// function changeBalance(num) {
+//   let balance = 0;
+//   return function (sum) {
+//     balance += sum;
+//     num++;
+//     console.log(balance, num);
+//   };
+// }
 
-// const addDamageFunc = car.addDamage;
+// const change = changeBalance(0);
+// change(150);
+// change(-50);
+// change(250);
 
-// //addDamageFunc("Bamper", 2);
+// console.dir(change);
 
-// addDamageFunc.call(car, "Kapot", 1);
-// addDamageFunc.call(carB, "Kapot", 9);
-
-// addDamageFunc.apply(carB, ["Стекло", 7]);
-
-//-------------------------Bind------------------
-
-// const car = {
-//   make: "Audi",
-//   model: "A3",
-//   year: 2021,
-//   damages: [],
-// };
-
-// const carManipulation = {
-//   addDamage(part, rate) {
-//     this.damages.push({ part, rate });
-//     console.log(
-//       `У автомобиля ${this.make} ${this.model} добавленно повреждение: \n` +
-//         `${part}, степень ${rate}`
-//     );
-//   },
-// };
-
-// const addDamageCar = carManipulation.addDamage.bind(car);
-
-// addDamageCar("Крыло", 5);
-// addDamageCar("Дверь", 15);
-// console.log(car);
-
-//-------------------Упражнение---------------
-
-const userVD = {
-  firstName: "Владиир",
-  lastName: "Доронин",
-  login: "doroninva@yandex.ru",
-  pass: "dgdgtr35de3xgg",
+const userInfo = {
+  balance: 0,
+  operations: 0,
+  increse(sum) {
+    this.balance += sum;
+    this.operations++;
+  },
 };
 
-const userVP = {
-  firstName: "Василий",
-  lastName: "Семенов",
-  pass: "123456",
-};
-
-function removePass(reset) {
-  if (reset) {
-    this.pass = undefined;
-  } else {
-    this.pass = "1";
-  }
+function user() {
+  const userObj = {
+    balance: 0,
+    operations: 0,
+    increse(sum) {
+      this.balance += sum;
+      this.operations++;
+    },
+  };
+  return function () {
+    return userObj;
+  };
 }
 
-removePass.call(userVD, 0);
+const user1 = user();
+const user2 = user();
 
-console.log(userVD);
+user1().increse(100);
+user1().increse(100);
+user1().increse(100);
+
+user2().increse(515);
+
+console.log(user1());
+console.log(user2());
+console.log(userInfo);
