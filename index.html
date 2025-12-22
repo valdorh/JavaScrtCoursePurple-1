@@ -3,17 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="./app.js"></script>
+    <title>Habbit App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/styles.css">
 </head>
-<body style="background-color: #1C1B21; text-align: center;">
-    <img src="./logo.svg" alt="">
-    <h1 style="color: white; font-family: Arial, sans-serif; margin-top: 50px;">
-        Шаблонные строки в JavaScript
-    </h1>
-    <div class="panel1">I love thids</div>
-    <input type="text" class="input">
-    <button class="button">Change</button>
-
+<body>
+    <div class="app">
+        <div class="panel">
+            <img class="logo" src="/images/Logo.svg" alt="Logo Habit App">
+            <nav class="menu">
+                <div class="menu-list">
+                    <button class="menu-item menu-item-active">
+                        <img src="/images/water.svg" alt="Вода">
+                    </button>
+                    <button class="menu-item">
+                        <img src="/images/food.svg" alt="Food">
+                    </button>
+                </div>
+            <button class="menu-add">
+                <img src="/images/add.svg" alt="Добавить привычку">
+            </button>
+            </nav>
+        </div>
+        <div class="content">
+            <header>
+                <h1>Отжимания </h1>
+                <div class="progress">
+                    <div class="progress-text">
+                        <div>Прогресс</div>
+                        <div>80%</div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-cover-bar"></div>
+                    </div>
+                </div>
+            </header>
+            <main>
+                <div>
+                    <div class="habbit">
+                        <div class="habbit-day">День 1</div>
+                        <div class="habbit-coment">Первый подход всегда даётся тяжело</div>
+                        <button class="habbit-delete">
+                            <img src="/images/delete.svg" alt="Удалить привычку">
+                        </button>
+                    </div>
+                </div>
+                <div>
+                    <div class="habbit">
+                        <div class="habbit-day">День 2</div>
+                        <form class="habbit-form">
+                            <input class="input_icon" type="text" placeholder="Комментарий к дню">
+                            <img class="input__icon" src="images/coment.svg" alt="Иконка комментария">
+                            <button class="button"> Готово </button>
+                        </form>
+                        
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="./scripts/app.js"></script>
 </body>
 </html>
+
